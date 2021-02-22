@@ -31,12 +31,11 @@ public class TaxCalculator extends JFrame {
 
 
 	private void buildTaxPanel() {
-		// Create a MPGPanel object.
+		// Create a TaxPanel object.
 		taxPanel = new TaxPanel();
 		// Add it to the content pane.
 		add(
-				taxPanel,
-				BorderLayout.CENTER);
+				taxPanel);
 	}
 
 }
