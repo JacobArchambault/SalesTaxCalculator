@@ -31,7 +31,7 @@ public class TaxCalculator extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private MPGPanel mPGPanel; // A panel for entering miles and gallons data
+	private TaxPanel mPGPanel; // A panel for entering miles and gallons data
 
 	/**
 	 * Constructor
@@ -75,7 +75,7 @@ public class TaxCalculator extends JFrame {
 
 	private void buildMPGPanel() {
 		// Create a MPGPanel object.
-		mPGPanel = new MPGPanel();
+		mPGPanel = new TaxPanel();
 		// Add it to the content pane.
 		add(
 				mPGPanel,

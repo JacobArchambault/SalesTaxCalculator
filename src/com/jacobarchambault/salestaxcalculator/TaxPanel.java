@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class MPGPanel extends JPanel {
+public class TaxPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JTextField gallonsValue; // To get gallons value
 	private JTextField milesValue; // for miles input
@@ -15,7 +15,7 @@ public class MPGPanel extends JPanel {
 	/**
 	 * Constructor
 	 */
-	public MPGPanel() {
+	public TaxPanel() {
 		// Initialize text fields.
 		gallonsValue = new JTextField(
 				10);
