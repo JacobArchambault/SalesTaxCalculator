@@ -1,6 +1,5 @@
 package com.jacobarchambault.salestaxcalculator;
 
-import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
@@ -28,7 +27,6 @@ public class TaxCalculator extends JFrame {
 		setVisible(
 				true);
 	}
-
 
 	private void buildTaxPanel() {
 		// Create a TaxPanel object.
