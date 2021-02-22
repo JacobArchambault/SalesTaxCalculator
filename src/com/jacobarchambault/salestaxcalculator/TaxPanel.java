@@ -23,13 +23,22 @@ public class TaxPanel extends JPanel {
 						3,
 						2));
 		// Add the labels and text fields to this panel.
-		add(
-				new JLabel(
-						"Enter the amount of the purchase:"));
-		purchaseValue = new JTextField(
+		addPurchaseValueField();
+		addSlider();
+		addSalesTaxTextBox();
+	}
+
+	private void addSalesTaxTextBox() {
+		salesTaxValue = new JTextField(
 				10);
 		add(
-				purchaseValue);
+				new JLabel(
+						"Sales tax:"));
+		add(
+				salesTaxValue);
+	}
+
+	private void addSlider() {
 		add(
 				new JLabel(
 						"Sales Tax Slider:"));
@@ -44,13 +53,16 @@ public class TaxPanel extends JPanel {
 		jSlider.setPaintTicks(true);
 		jSlider.setPaintLabels(true);
 		jSlider.setSnapToTicks(true);
-		salesTaxValue = new JTextField(
-				10);
+	}
+
+	private void addPurchaseValueField() {
 		add(
 				new JLabel(
-						"Sales tax:"));
+						"Enter the amount of the purchase:"));
+		purchaseValue = new JTextField(
+				10);
 		add(
-				salesTaxValue);
+				purchaseValue);
 	}
 
 	public void showMPG() {
