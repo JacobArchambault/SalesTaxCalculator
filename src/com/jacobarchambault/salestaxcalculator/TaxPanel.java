@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 public class TaxPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JTextField purchaseValue; // To get gallons value
-	private JTextField milesValue; // for miles input
+	private JTextField salesTaxValue; // for miles input
 
 	/**
 	 * Constructor
@@ -19,7 +19,7 @@ public class TaxPanel extends JPanel {
 		// Initialize text fields.
 		purchaseValue = new JTextField(
 				10);
-		milesValue = new JTextField(
+		salesTaxValue = new JTextField(
 				10);
 		// Create a GridLayout manager.
 		setLayout(
@@ -34,9 +34,9 @@ public class TaxPanel extends JPanel {
 				purchaseValue);
 		add(
 				new JLabel(
-						"Number of miles driven:"));
+						"Sales tax:"));
 		add(
-				milesValue);
+				salesTaxValue);
 	}
 
 	public void showMPG() {
@@ -45,7 +45,7 @@ public class TaxPanel extends JPanel {
 				purchaseValue.getText());
 		// Get the miles value.
 		double miles = Double.parseDouble(
-				milesValue.getText());
+				salesTaxValue.getText());
 		// calculate mpg
 		double mpg = miles / gallons;
 		// Display them.
