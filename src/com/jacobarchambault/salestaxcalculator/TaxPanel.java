@@ -1,6 +1,8 @@
 package com.jacobarchambault.salestaxcalculator;
 
 import java.awt.GridLayout;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -38,7 +40,8 @@ public class TaxPanel extends JPanel implements ChangeListener {
 						"Sales tax:"));
 		add(
 				salesTaxValue);
-		salesTaxValue.setEditable(false);
+		salesTaxValue.setEditable(
+				false);
 	}
 
 	private void addSlider() {
@@ -50,13 +53,19 @@ public class TaxPanel extends JPanel implements ChangeListener {
 				0,
 				10,
 				0);
-		add(jSlider);
-		//Turn on labels at major tick marks.
-		jSlider.setMajorTickSpacing(1);
-		jSlider.setPaintTicks(true);
-		jSlider.setPaintLabels(true);
-		jSlider.setSnapToTicks(true);
-		jSlider.addChangeListener(this);
+		add(
+				jSlider);
+		// Turn on labels at major tick marks.
+		jSlider.setMajorTickSpacing(
+				1);
+		jSlider.setPaintTicks(
+				true);
+		jSlider.setPaintLabels(
+				true);
+		jSlider.setSnapToTicks(
+				true);
+		jSlider.addChangeListener(
+				this);
 	}
 
 	private void addPurchaseValueField() {
@@ -78,9 +87,14 @@ public class TaxPanel extends JPanel implements ChangeListener {
 			double purchase = Double.parseDouble(
 					purchaseValue.getText());
 			// calculate tax
-			double tax = sliderValue * (purchase/100);
+			double tax = sliderValue * (purchase / 100);
 			// Display them.
-			salesTaxValue.setText(String.valueOf(tax));
+			salesTaxValue.setText(
+					String.valueOf(
+							NumberFormat.getCurrencyInstance(
+									Locale.US)
+									.format(
+											tax)));
 		}
 	}
 
@@ -88,6 +102,6 @@ public class TaxPanel extends JPanel implements ChangeListener {
 	public void stateChanged(
 			ChangeEvent arg0) {
 		showTax();
-		
+
 	}
 }
