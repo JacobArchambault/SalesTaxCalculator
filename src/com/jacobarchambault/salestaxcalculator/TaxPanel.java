@@ -12,6 +12,7 @@ public class TaxPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JTextField purchaseValue; // To get gallons value
 	private JTextField salesTaxValue; // for miles input
+	private JSlider jSlider;
 
 	/**
 	 * Constructor
@@ -43,7 +44,7 @@ public class TaxPanel extends JPanel {
 		add(
 				new JLabel(
 						"Sales Tax Slider:"));
-		JSlider jSlider = new JSlider(
+		jSlider = new JSlider(
 				JSlider.HORIZONTAL,
 				0,
 				10,
@@ -67,19 +68,17 @@ public class TaxPanel extends JPanel {
 	}
 
 	public void showMPG() {
-		// Get the gallons value.
-		double gallons = Double.parseDouble(
+		// Get the purchase value.
+		double purchase = Double.parseDouble(
 				purchaseValue.getText());
-		// Get the miles value.
-		double miles = Double.parseDouble(
-				salesTaxValue.getText());
+		// Get the tax value.
+		int sliderValue = 0;
+		if (!jSlider.getValueIsAdjusting()) {
+			sliderValue = jSlider.getValue();
+		}
 		// calculate mpg
-		double mpg = miles / gallons;
+		double mpg = sliderValue * (purchase/100);
 		// Display them.
-		JOptionPane.showMessageDialog(
-				null,
-				String.format(
-						"You got %,.2f miles per gallon",
-						mpg));
+		salesTaxValue.setText(String.valueOf(mpg));
 	}
 }
