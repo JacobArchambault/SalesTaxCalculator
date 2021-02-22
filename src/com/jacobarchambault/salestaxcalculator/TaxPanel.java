@@ -36,6 +36,7 @@ public class TaxPanel extends JPanel {
 						"Sales tax:"));
 		add(
 				salesTaxValue);
+		salesTaxValue.setEditable(false);
 	}
 
 	private void addSlider() {
