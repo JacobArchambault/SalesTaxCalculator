@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JSlider;
 import javax.swing.JTextField;
 
 public class TaxPanel extends JPanel {
@@ -24,7 +25,7 @@ public class TaxPanel extends JPanel {
 		// Create a GridLayout manager.
 		setLayout(
 				new GridLayout(
-						2,
+						3,
 						2));
 		// Add the labels and text fields to this panel.
 		add(
@@ -32,6 +33,19 @@ public class TaxPanel extends JPanel {
 						"Enter the amount of the purchase:"));
 		add(
 				purchaseValue);
+		add(
+				new JLabel(
+						"Sales Tax Slider:"));
+		JSlider jSlider = new JSlider(
+				JSlider.HORIZONTAL,
+				0,
+				10,
+				0);
+		add(jSlider);
+		//Turn on labels at major tick marks.
+		jSlider.setMajorTickSpacing(1);
+		jSlider.setPaintTicks(true);
+		jSlider.setPaintLabels(true);
 		add(
 				new JLabel(
 						"Sales tax:"));
