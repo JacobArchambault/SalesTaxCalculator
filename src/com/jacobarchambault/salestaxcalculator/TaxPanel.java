@@ -3,7 +3,6 @@ package com.jacobarchambault.salestaxcalculator;
 import java.awt.GridLayout;
 
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
@@ -12,8 +11,8 @@ import javax.swing.event.ChangeListener;
 
 public class TaxPanel extends JPanel implements ChangeListener {
 	private static final long serialVersionUID = 1L;
-	private JTextField purchaseValue; // To get gallons value
-	private JTextField salesTaxValue; // for miles input
+	private JTextField purchaseValue; // To get purchase value
+	private JTextField salesTaxValue; // for sales tax output
 	private JSlider jSlider;
 
 	/**
@@ -70,25 +69,25 @@ public class TaxPanel extends JPanel implements ChangeListener {
 				purchaseValue);
 	}
 
-	public void showMPG() {
+	public void showTax() {
 		// Get the purchase value.
-		double purchase = Double.parseDouble(
-				purchaseValue.getText());
 		// Get the tax value.
 		int sliderValue = 0;
 		if (!jSlider.getValueIsAdjusting()) {
 			sliderValue = jSlider.getValue();
+			double purchase = Double.parseDouble(
+					purchaseValue.getText());
+			// calculate tax
+			double tax = sliderValue * (purchase/100);
+			// Display them.
+			salesTaxValue.setText(String.valueOf(tax));
 		}
-		// calculate mpg
-		double mpg = sliderValue * (purchase/100);
-		// Display them.
-		salesTaxValue.setText(String.valueOf(mpg));
 	}
 
 	@Override
 	public void stateChanged(
 			ChangeEvent arg0) {
-		showMPG();
+		showTax();
 		
 	}
 }
