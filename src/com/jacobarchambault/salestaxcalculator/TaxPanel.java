@@ -17,11 +17,6 @@ public class TaxPanel extends JPanel {
 	 * Constructor
 	 */
 	public TaxPanel() {
-		// Initialize text fields.
-		purchaseValue = new JTextField(
-				10);
-		salesTaxValue = new JTextField(
-				10);
 		// Create a GridLayout manager.
 		setLayout(
 				new GridLayout(
@@ -31,6 +26,8 @@ public class TaxPanel extends JPanel {
 		add(
 				new JLabel(
 						"Enter the amount of the purchase:"));
+		purchaseValue = new JTextField(
+				10);
 		add(
 				purchaseValue);
 		add(
@@ -46,6 +43,9 @@ public class TaxPanel extends JPanel {
 		jSlider.setMajorTickSpacing(1);
 		jSlider.setPaintTicks(true);
 		jSlider.setPaintLabels(true);
+		jSlider.setSnapToTicks(true);
+		salesTaxValue = new JTextField(
+				10);
 		add(
 				new JLabel(
 						"Sales tax:"));
