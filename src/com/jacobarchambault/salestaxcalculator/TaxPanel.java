@@ -7,8 +7,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
-public class TaxPanel extends JPanel {
+public class TaxPanel extends JPanel implements ChangeListener {
 	private static final long serialVersionUID = 1L;
 	private JTextField purchaseValue; // To get gallons value
 	private JTextField salesTaxValue; // for miles input
@@ -55,6 +57,7 @@ public class TaxPanel extends JPanel {
 		jSlider.setPaintTicks(true);
 		jSlider.setPaintLabels(true);
 		jSlider.setSnapToTicks(true);
+		jSlider.addChangeListener(this);
 	}
 
 	private void addPurchaseValueField() {
@@ -80,5 +83,12 @@ public class TaxPanel extends JPanel {
 		double mpg = sliderValue * (purchase/100);
 		// Display them.
 		salesTaxValue.setText(String.valueOf(mpg));
+	}
+
+	@Override
+	public void stateChanged(
+			ChangeEvent arg0) {
+		showMPG();
+		
 	}
 }
